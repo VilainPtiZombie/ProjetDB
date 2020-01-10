@@ -31,9 +31,9 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `serveurs`;
 CREATE TABLE IF NOT EXISTS `serveurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_serv` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+  `nom_serv` varchar(20) CHARACTER SET utf8 NOT NULL,
   KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `serveurs`

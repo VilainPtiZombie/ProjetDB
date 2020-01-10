@@ -4,12 +4,15 @@
 	<title></title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.min.css" rel="stylesheet">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <section class="container">
 	<div class="row">
 		<span class="col-8">
-			<form class="needs-validation" novalidate>
+
+		<!-- Form inscription -->
+			<form class="needs-validation" novalidate method="POST" action="script/traitement.php">
 			  <div class="form-row">
 			    <div class="col-md-6 mb-3">
 			      <label for="validationTooltip01">Pseudo</label>
@@ -20,7 +23,7 @@
 			    </div>
 			    <div class="col-md-6 mb-3">
 			      <label for="validationTooltip02">Email</label>
-			      <input type="text" class="form-control" id="validationTooltip02" Placeholder="Votre Mail" required>
+			      <input type="mail" class="form-control" id="validationTooltip02" Placeholder="Votre Mail" required>
 			      <div class="valid-tooltip">
 			        Looks good!
 			      </div>
@@ -29,30 +32,42 @@
 			  <div class="form-row">
 			    <div class="col-md-6 mb-3">
 			      <label for="validationTooltip03">Mot de passe</label>
-			      <input type="text" class="form-control" id="validationTooltip03" required>
+			      <input type="password" class="form-control" id="validationTooltip03" required>
 			      <div class="invalid-tooltip">
 			      Mot de passe non valide
 			      </div>
 			    </div>
 			    <div class="col-md-6 mb-3">
-			      <label for="validationTooltip03">Validation</label>
-			      <input type="text" class="form-control" id="validationTooltip03" required>
+			      <label for="validationTooltip04">Validation</label>
+			      <input type="password" class="form-control" id="validationTooltip03" required>
 			      <div class="invalid-tooltip">
 			      Mot de passe non correspondant
 			      </div>
 			    </div>
 			    <div class="col-md-12 mb-3">
 			      <label for="validationTooltip04">Serveurs</label>
-			      	 <select class="selectpicker form-control mt-4" data-live-search="true" multiple data-header="Séléctionne ton/tes Serveur(s)" data-style="form-control">					
-						
+			      	 <select class="selectpicker form-control mt-4" data-live-search="true" multiple data-header="Séléctionne ton/tes Serveur(s)" data-style="form-control">
+			      	 <?php
+			      	 require ('script/bdd.php');
+						$sql = "SELECT id, nom_serv FROM serveurs";
+						$result = $conn->query($sql);
+
+						if ($result->num_rows > 0) {
+						    // output data of each row
+						    while($row = $result->fetch_assoc()) {
+						        echo ("<option value='".$row['id']."'>".$row['nom_serv']." </option>");
+						    }
+						} else {
+						    echo "0 results";
+						}
+						$conn->close();
+					?>	
 					</select>
-			      <div class="invalid-tooltip">
-			        Please select a valid state.
-			      </div>
 			    </div>
 			  </div>
-			  <button class="btn btn-primary" type="submit">Submit form</button>
+			  <button class="btn btn-primary" type="submit">S'inscrire</button>
 			</form>
+			<!-- fin form inscription -->
 		</span>
 	</div>	
 </section>
