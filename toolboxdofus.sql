@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 15 jan. 2020 à 23:38
+-- Généré le :  mer. 15 jan. 2020 à 23:42
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `list_auct` (
 -- Déchargement des données de la table `list_auct`
 --
 
-INSERT IGNORE INTO `list_auct` (`id`, `user_id`, `auct_serv`, `auct_tranfert`, `Auct_screen`, `Auct_txt`, `Auct_prix_start`, `Auct_prix_sell`, `Auct_Equip`, `auct_last_bid`, `auct_fm`, `auct_time`, `auct_activ`) VALUES
+INSERT INTO `list_auct` (`id`, `user_id`, `auct_serv`, `auct_tranfert`, `Auct_screen`, `Auct_txt`, `Auct_prix_start`, `Auct_prix_sell`, `Auct_Equip`, `auct_last_bid`, `auct_fm`, `auct_time`, `auct_activ`) VALUES
 (5, 1, 2, 'on', '5.png', 'fgvhbxf', 15000, 155000, 5, NULL, '', NULL, 0),
 (4, 1, 1, 'on', '4.jpg', 'fgvhbxf', 15000, 15000, 1, NULL, '', NULL, 0),
 (6, 1, 15, 'on', '6.jpg', 'fgvhbxf', 15000, 15000, 1, NULL, '0', '2020-01-15 16:14:03', 1),
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `list_equipement` (
 -- Déchargement des données de la table `list_equipement`
 --
 
-INSERT IGNORE INTO `list_equipement` (`id`, `equip_name`) VALUES
+INSERT INTO `list_equipement` (`id`, `equip_name`) VALUES
 (1, 'Alliance Brûlâme'),
 (2, 'Alliance de Corruption'),
 (3, 'Alliance du Lévitrof'),
@@ -1975,7 +1975,7 @@ INSERT IGNORE INTO `list_equipement` (`id`, `equip_name`) VALUES
 (1898, 'Slip de Rechange du Captain Chafer'),
 (1899, 'Amulette de l\'Ours'),
 (1900, 'Amulette du Hibou');
-INSERT IGNORE INTO `list_equipement` (`id`, `equip_name`) VALUES
+INSERT INTO `list_equipement` (`id`, `equip_name`) VALUES
 (1901, 'Amulette du Loup'),
 (1902, 'Amulette du Piou Rose'),
 (1903, 'Anneau de l\'Aventurier'),
@@ -2106,7 +2106,7 @@ CREATE TABLE IF NOT EXISTS `serveurs` (
 -- Déchargement des données de la table `serveurs`
 --
 
-INSERT IGNORE INTO `serveurs` (`id`, `nom_serv`) VALUES
+INSERT INTO `serveurs` (`id`, `nom_serv`) VALUES
 (1, 'Arty'),
 (2, 'Algathe'),
 (3, 'Droupik'),
@@ -2156,7 +2156,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT IGNORE INTO `user` (`id`, `username`, `password`, `email`, `server`, `cle`, `actif`) VALUES
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `server`, `cle`, `actif`) VALUES
 (1, 'vilainzombie', '9d082088afcdd7f5718fb2c613b59543', 'boutet.maximilien@gmail.com', '26', '470f4d64a8779bb124c54b9322abaa70', 1);
 COMMIT;
 
