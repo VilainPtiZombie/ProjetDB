@@ -1,5 +1,23 @@
- $(document).ready(function() {
-        $('#multiselect').multiselect({
-            buttonWidth: '400px'
-        });
-    });
+$( document ).ready(function() {
+	console.log( "ready!" );
+	$('#myTabs a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	})
+	$(function () {
+	  $('[data-toggle="popover"]').popover({trigger: 'focus'})
+	})
+	$(function () {
+	  /* Get the text field */
+	  $(".mp_txt").hide();
+	  $(".mp_button").click(function() {
+  		  $(this).siblings('input').toggle();
+  		  
+	 })
+	$('#showImg').on('shown.bs.modal', function () {
+	  $('#showIMGCenter').trigger('focus')
+	})
+
+	})
+
+});

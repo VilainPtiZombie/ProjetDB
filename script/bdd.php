@@ -1,13 +1,10 @@
 <?php
-$servername = "localhost:8889";
-$username = "root";
-$password = "root";
-$dbname = "toolboxdofus";
+  try {
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION; /* on définie les options d'erreurs que l'on souhaite */
+$bdd = new PDO("mysql:host=localhost;dbname=toolboxdofus;charset=utf8", 'root', '', $pdo_options);
+  }
+  catch(exception $e) {
+    die('Erreur '.$e->getMessage());
+  }
 ?>
