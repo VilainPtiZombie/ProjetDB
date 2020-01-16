@@ -15,7 +15,9 @@ require('bdd.php'); ?>
             on la.auct_serv = s.id";
 			$resList = $bdd->query($list_auct);
 			    // output data of each row
-			while($list = $resList->fetch()) {
+
+		
+				while($list = $resList->fetch()) {
 			        echo ("
 					<div class=' col-12 row list-card'>
 					  	<div class='col-1'>
@@ -57,12 +59,15 @@ require('bdd.php'); ?>
 						</div>
 					</div>
 					");
-			    } 
+			  	  } 
 			    
 			    $resList->closeCursor();
-			    ?>
 
 
+			    
+			
+
+?>
 
 	</div>
 

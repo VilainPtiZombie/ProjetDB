@@ -13,11 +13,10 @@ $( document ).ready(function() {
 	  $(".mp_button").click(function() {
   		  $(this).siblings('input').toggle();
   		  
-	 })
+		})
+	})
 	$('#showImg').on('shown.bs.modal', function () {
 	  $('#showIMGCenter').trigger('focus')
-	})
-
 	})
 
 });
