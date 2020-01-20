@@ -20,16 +20,21 @@ require('bdd.php'); ?>
 				while($list = $resList->fetch()) {
 			        echo ("
 					<div class=' col-12 row list-card'>
-					  	<div class='col-1'>
-					  	<a href='../upload/auction/".$list['Auct_screen']."' target='_blank' alt='Ouverture de l'image'>
+					  	<div class='col-1 img-auct'>
+					  	<button alt='Ouverture de l'image' class='popup-img'>
 							<img class='img-fluid' src='../upload/auction/".$list['Auct_screen']."' alt='Card image cap'>
-							<i class='lni-zoom-in'></i></a>
-								
+							<i class='lni-zoom-in'></i>
+						</button>
+						<div id='img-popup' class='img-show'>
+							<span class='close-img'>&times;</span>
+							<img class='img-shown'  src='../upload/auction/".$list['Auct_screen']."'>
+							<div id='caption'></div>
+						</div>
 					  	</div>
 					  	<div class='col-2'>	
 						    <h5 class=''>".$list['equip']."</h5>
 						</div>	
-						<div class='col-4 text-left'>
+						<div class='col-5 text-left'>
 							<h6>Caractéristique : </h6>	
 							<p class=''>".$list['Auct_txt']."</p>
 							<small class='text-muted'>
@@ -44,13 +49,6 @@ require('bdd.php'); ?>
 							<h6>Prix de vente : </h6>
 							<p class='prix'>".$list['Auct_prix_sell']."
 								<img class='img-fluid' style='width:1rem;' src='../upload/assets/kamas.png'>
-							</p>
-						</div>
-					    <div class='col-1'>	
-						    <p class=''>
-						    	<small class='text-muted'>
-									par : ".$list['username']."
-								</small>
 							</p>
 						</div>
 						<div class='col-2 row'>

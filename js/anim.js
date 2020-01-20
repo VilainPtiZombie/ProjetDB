@@ -15,8 +15,19 @@ $( document ).ready(function() {
   		  
 		})
 	})
-	$('#showImg').on('shown.bs.modal', function () {
-	  $('#showIMGCenter').trigger('focus')
+	// Img hover
+	$(function () {
+	  
+	  $(".img-show").hide();
+	  $(".popup-img").click(function() {
+  		  $(this).siblings("div").toggle(); 
+		})
+	  $(".close-img").click(function() {
+  		  $(this).parent("div").hide(); 
+		})	
+	   $(".img-show").click(function() {
+  		  $(this).hide(); 
+		})
 	})
 
 });
