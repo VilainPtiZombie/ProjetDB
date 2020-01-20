@@ -1,3 +1,13 @@
+<section class="footer-block">
+	<div class="footer">
+		<div class="copyright">
+			<p>Site crée par VilainZombie © hébergé et propulsé par : <a target="_blank"href="https://malstrom.fr/">Malstrom</a>
+			</p>
+			<p>Les images et illustrations sont la propriété de  <a target="_blank"href="https://www.dofus.com/">DOFUS</a> © ANKAMA GAMES</p>
+		</div>
+	</div>
+</section>
+
 <footer>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../js/anim.js"></script>

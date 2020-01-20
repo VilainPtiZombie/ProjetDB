@@ -21,10 +21,10 @@ require('bdd.php'); ?>
 			        echo ("
 					<div class=' col-12 row list-card'>
 					  	<div class='col-1 img-auct'>
-					  	<button alt='Ouverture de l'image' class='popup-img'>
+					  	<a alt='Ouverture de l'image' class='popup-img'>
 							<img class='img-fluid' src='../upload/auction/".$list['Auct_screen']."' alt='Card image cap'>
 							<i class='lni-zoom-in'></i>
-						</button>
+						</a>
 						<div id='img-popup' class='img-show'>
 							<span class='close-img'>&times;</span>
 							<img class='img-shown'  src='../upload/auction/".$list['Auct_screen']."'>
