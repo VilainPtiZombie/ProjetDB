@@ -40,7 +40,7 @@
                       Outils
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a href="../tool/enchere.php" class="dropdown-item">Pépitator</a></li>
+                    <li><a href="../tool/pepitator.php" class="dropdown-item">Pépitator</a></li>
                     <li><a href="" class="dropdown-item"></a></li>
                     <li><a href="" class="dropdown-item"></a></li>
                 </ul>

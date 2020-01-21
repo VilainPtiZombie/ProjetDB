@@ -176,36 +176,5 @@ if (!empty($_POST['InsUser']) && !empty($_POST['InsPassword']) && !empty($_POST[
 } 
 }
 	
-if (isset($_POST['calcul']) && (!empty($_POST['calcul']))) {
-	
-	$ppress = $_POST['pepite-p-ress'];
-	$pppep = $_POST['pepite-p-pep'];
-	$pnpep = $_POST['pepite-n-pep'];
-	$qres = $_POST['pepite-n-ress'];
-	
-
-	$psomme = ($ppress / $pnpep);
-	$psomRes = ($psomme * $qres);
-
-	if ($psomme > $pppep) {
-		$presult =  ("
-				<div class='card text-white bg-danger'>
-				  <div class='card-header'>Ressource non rentable</div>
-				  <div class='card-body'>
-				    <p class='card-text'>Votre pépite coûtera ".$psomme."Kamas  par pépite</p>
-				  </div>
-				</div>
-			");
-	}else{
-		$presult =  ("
-				<div class='card text-white bg-success'>
-				  <div class='card-header'>Ressource rentable</div>
-				  <div class='card-body'>
-				    <p class='card-text'>Votre pépite coûtera ".$psomme."Kamas par pépite</p>
-				  </div>
-				</div>
-			");
-	}
-}
 
 ?>
