@@ -1,11 +1,12 @@
 <?php
-if (isset($_GET)) {
+$ListSeach = "";
+if (isset($_GET) == TRUE && !empty($_GET)) {
 	
 
-	$SearchEquip = $_GET['SearchAuctEquip'];
-	$SearchServ = $_GET['SearchInsServ'];
-	$SearchFm = $_GET['SearchFm'];
-	$SearchPMax = $_GET['PrixMaxSearch'];
+	$SearchEquip = htmlspecialchars($_GET['SearchAuctEquip']);
+	$SearchServ = htmlspecialchars($_GET['SearchInsServ']);
+	$SearchFm = htmlspecialchars($_GET['SearchFm']);
+	$SearchPMax = htmlspecialchars($_GET['PrixMaxSearch']);
 
 	$condSearch = array();
 	$i = 0;
@@ -19,11 +20,11 @@ if (isset($_GET)) {
 		$condSearch[] = "Auct_Serv = ".$SearchServ."";
 		
 	}
-	if (isset($_GET['SearchFm']) && !empty($_GET['SearchFm'])) {
+	if (isset($_GET['SearchFm']) && !empty($_GET['SearchFm']) && is_numeric($_GET['SearchFm'])) {
 		$condSearch[] = "auct_fm = ".$SearchFm."";
 		
 	}
-	if (isset($_GET['PrixMaxSearch']) && !empty($_GET['PrixMaxSearch'])) {
+	if (isset($_GET['PrixMaxSearch']) && !empty($_GET['PrixMaxSearch']) && is_numeric($_GET['PrixMaxSearch'])) {
 		$condSearch[] = "Auct_prix_sell <= ".$SearchPMax."";
 		
 	}
