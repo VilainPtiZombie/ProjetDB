@@ -361,6 +361,12 @@ section.input_pepitator {
     display: flex;
     margin:auto;
 }
-.result {
-    
+.pepitator .w-100 {
+    margin:0.8rem 0;
+}
+.pepitator input {
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.5);
+}
+.pepitator input[type=submit] {
+    margin-top: 1.6rem;
 }
