@@ -2,9 +2,9 @@
 
 <section class="search row align-items-center">
 	<div class="container">
-		<form action="" class="col-12 form-row">
+		<form action="#" method="GET" class="col-12 form-row">
 			<div class="input-group col-5">
-            	<select name="AuctEquip[]" class="selectpicker form-control" id="serveur" data-live-search="true" multiple data-title="Séléctionne ton/tes Item(s) souhaité(s)" data-style="text" data-size="10">
+            	<select name="SearchAuctEquip" class="selectpicker form-control" id="serveur" data-live-search="true" data-title="Séléctionne ton/tes Item(s) souhaité(s)" data-style="text" data-size="10">
 		      	<?php
 		      	require ('../script/bdd.php');
 					$sql = "SELECT id, equip_name FROM list_equipement";
@@ -20,7 +20,7 @@
 				</select>
             </div>
 			<div class="col-2 input-group">
-	            <select name="InsServ[]" class="selectpicker form-control" id="serveur" data-live-search="true" multiple data-title="Serveurs" data-style="text" data-size="10">
+	            <select name="SearchInsServ" class="selectpicker form-control" id="serveur" data-live-search="true" data-title="Serveurs" data-style="text" data-size="10">
 			      	<?php
 			      	require ('../script/bdd.php');
 						$sql2 = "SELECT id, nom_serv FROM serveurs";
@@ -35,17 +35,17 @@
 					</select>
 	            </div>
 			<div class="col-2">
-				<input type="text" class="form-control" placeholder="hello there">
+				<input type="number" class="form-control" placeholder="Prix Maximum" name="PrixMaxSearch">
 			</div>
 			<div class="col-2">
-				<select type="radio" class="form-control" placeholder="FM/Exo ?">
-					<option selected>FM/Exo ?</option>
+				<select type="radio" class="form-control" name="SearchFm" placeholder="FM/Exo ?">
+					<option selected value="">FM/Exo ?</option>
 					<option value="0">Non</option>
 					<option value="1">Oui</option>
 				</select>
 			</div>
 			<div class="col-1">
-				<input type="submit" class="btn btn-info" placeholder="hello there">
+				<input type="submit" class="btn btn-info" name="SubSearch" placeholder="hello there">
 			</div>
 		</form>
 	</div>

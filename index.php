@@ -2,7 +2,7 @@
 
 <section class="container f-row">
 	<div class="card text-white bg-dark">
-		<h2 class="card-header">Bienvenue sur D2toolBoox</h5>
+		<h2 class="card-header">Bienvenue sur D2toolBoox</h2>
 		<div class="card-body">
 			<p>
 				Bonjour à tous !</br>
@@ -28,8 +28,31 @@
 					</div>
 				</div>
 			</div>	
-		</div>
+		</div>		
 	</div>
+</br>
+	<H2>Quelques Actus :</H2>
+		<div class="card mb-3 bg-dark text-white">
+			<div class="row no-gutters">
+				<div class="col-md-4">
+					<img src="..." class="card-img" alt="...">
+				</div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h5 class="card-title">Avancement du projet</h5>
+							<p class="card-text">Le site avance bien, j'ai activer le site en mode online ! Voici un petit changelog de l'avancement : 
+								<ul>
+							<li>- Ajout des enchères,</li>
+							<li>- Ajout du calcul des pépites,</li>
+							<li>- Travail en cours sur les recherches des enchères,</li>
+							<li>- Ajout des profils minimaliste.</li>
+							</ul>
+							</p>
+							<p class="card-text"><small class="text-muted">Last updated 22/01/2020 - 10h00</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	
 

@@ -1,5 +1,7 @@
 <?php
-require('bdd.php'); ?>
+require('bdd.php'); 
+include('search_auct.php');
+?>
 
 <section class="f-row container">
 	<div class="col-12 row">

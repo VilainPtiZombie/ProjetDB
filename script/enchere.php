@@ -109,7 +109,7 @@ echo  date("Y-m-d H:i:s");
 	$errorUrl = 'enchereVide';
 	Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
 }
-
+if ($sqlReq == TRUE) {
 	//TRAITEMENT IMPORT IMAGE VIA FORMULAIRE
 	//si on a recu un fichier et qu'il y a une erreur
 
@@ -147,9 +147,7 @@ echo  date("Y-m-d H:i:s");
 			$modif = $bdd -> prepare('UPDATE list_auct SET auct_screen = :c WHERE id = :i');
 			$modif -> execute(array(':c' => $nom, ':i' => $id));
 		}
-
-
-
+}
 
 
 require('../includes/footer.php');
