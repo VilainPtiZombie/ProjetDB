@@ -1,23 +1,19 @@
 <?php require('../includes/header.php');
 require('bdd.php');
-		var_dump($_POST);
-
-		var_dump($_SESSION);
 
 
+if (isset($_POST) && empty($user_id)) {
 
-if (isset($_POST)) {
-
-date_default_timezone_set('Europe/Paris');
+	date_default_timezone_set('Europe/Paris');
 	$equipement = htmlspecialchars($_POST['Auct_Add_Equip']);
 	$serv = htmlspecialchars($_POST['Auct_Serv']);
 	$screen = $_FILES['Auct_screen'];
 	$user_id = htmlspecialchars($_POST['add_auct_id']);
-	$transfert = htmlspecialchars($_POST['Auct_transfert']);
+	$transfert = $_POST['Auct_transfert'];
 	$desc = htmlspecialchars($_POST['Auct_txt']);
-	$p_start = htmlspecialchars($_POST['Auct_prix_start']);
-	$p_go = htmlspecialchars($_POST['Auct_prix_sell']);
-	$fm =  htmlspecialchars($_POST['auct_fm']);
+	$p_start = $_POST['Auct_prix_start'];
+	$p_go = $_POST['Auct_prix_sell'];
+	$fm =  $_POST['auct_fm'];
 	$tim = date("Y-m-d H:i:s");
 	$activ = '1';
 
@@ -106,7 +102,7 @@ echo  date("Y-m-d H:i:s");
 
 
 }else{
-	$errorUrl = 'enchereVide';
+	$errorUrl = 'enchereInvalide';
 	Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
 }
 if ($sqlReq == TRUE) {

@@ -16,9 +16,13 @@ include('search_auct.php');
             ON la.Auct_Equip = le.id
             JOIN serveurs s
             on la.auct_serv = s.id";
-            if (isset($_GET)) {
+
+            if (isset($_GET['SearchAuctEquip']) && isset($_GET['SearchInsServ']) && isset($_GET['SearchFm']) && isset($_GET['PrixMaxSearch'])) { 
             	$list_auct .= $ListSeach;
+            }else{
+            	$list_auct .= "";
             }
+
 			$resList = $bdd->query($list_auct);
 			    // output data of each row
 
@@ -44,14 +48,12 @@ include('search_auct.php');
 							<h6>Caractéristique : </h6>	
 							<p class=''>".$list['Auct_txt']."</p>
 							<small class='text-muted'>
-									par : ".$list['username']."
+									par : ".$list['username']." sur ".$list['serv']."
 								</small>
 						</div>
 						<div class='col-2 text-left'>
-							<h6>Enchère en cours : </h6>	
-							<p class='prix'>".$list['Auct_prix_start']."
-								<img class='img-fluid' style='width:1rem;' src='../upload/assets/kamas.png'>
-							</p>
+								
+							
 							<h6>Prix de vente : </h6>
 							<p class='prix'>".$list['Auct_prix_sell']."
 								<img class='img-fluid' style='width:1rem;' src='../upload/assets/kamas.png'>

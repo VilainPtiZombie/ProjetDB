@@ -1,6 +1,6 @@
 <?php
 $ListSeach = "";
-if (isset($_GET) == TRUE && !empty($_GET)) {
+if (isset($_GET['SearchAuctEquip']) && isset($_GET['SearchInsServ']) && isset($_GET['SearchFm']) && isset($_GET['PrixMaxSearch'])) {
 	
 
 	$SearchEquip = htmlspecialchars($_GET['SearchAuctEquip']);
