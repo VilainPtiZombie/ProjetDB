@@ -31,7 +31,7 @@ if (isset($_GET)) {
 	for ($i = 0; $i < (count($condSearch)); $i++) {
 			$condSearch = implode(" AND ", $condSearch);
 	}
-	$ListSeach = "WHERE $condSearch";
+	$ListSeach = " WHERE $condSearch";
 
 }
 ?>

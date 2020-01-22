@@ -6,6 +6,7 @@ include('search_auct.php');
 <section class="f-row container">
 	<div class="col-12 row">
   			<?php
+
 			$list_auct = "
 			SELECT la.id, la.user_id, la.auct_serv, la.auct_tranfert, la.Auct_screen, la.Auct_txt, la.Auct_prix_start, la.Auct_prix_sell, la.Auct_Equip, le.equip_name as equip, u.username as username, s.nom_serv as serv
 			FROM list_auct la
@@ -15,6 +16,9 @@ include('search_auct.php');
             ON la.Auct_Equip = le.id
             JOIN serveurs s
             on la.auct_serv = s.id";
+            if (isset($_GET)) {
+            	$list_auct .= $ListSeach;
+            }
 			$resList = $bdd->query($list_auct);
 			    // output data of each row
 
