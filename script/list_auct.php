@@ -69,8 +69,6 @@ include('search_auct.php');
 			    
 			    $resList->closeCursor();
 
-
-			    
 			
 
 ?>
