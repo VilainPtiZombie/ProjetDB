@@ -84,7 +84,8 @@ echo  date("Y-m-d H:i:s");
 						$sql_item = $bdd->prepare('
 						INSERT INTO `list_auct_stats`(`item_id`, `user_id`, `auct_id`, `vie`, `fo`, `ine`, `cha`, `age`, `sa`, `pa`, `pm`, `invo`, `do`, `do_feu`, `do_fo`, `do_cha`, `do_neu`, `do_air`, `do_sort`, `do_arme`, `do_mel`, `do_dis`, `so`, `pp`, `ini`, `pods`, `tac`, `fui`, `ret_pa`, `ret_pm`, `esq_pa`, `esq_pm`, `do_cri`, `do_pou`, `res_cri`, `res_pou`, `pc_neu`, `pc_fo`, `pc_ine`, `pc_cha`, `pc_air`, `res_neu`, `res_fo`, `res_ine`, `res_eau`, `res_air`, `pc_sort`, `pc_arme`, `pc_melee`, `pc_dist`, `renvoie`, `crit`) 
 						VALUES (
-							:item_id,:user_id
+							:item_id
+							,:user_id
 							,:auct_id
 							,:vie
 							,:fo
@@ -198,7 +199,7 @@ echo  date("Y-m-d H:i:s");
 					// Remplissage des champs non vides
 					for ($row = 0; $row < 49; $row++) {
 						if (empty($stat_array[$row][1])) {
-							$valueN = '';
+							$valueN = '0';
 							$sql_item->bindParam($stat_array[$row][0], $valueN, PDO::PARAM_STR);
 						}else{
 							$sql_item->bindParam($stat_array[$row][0], $stat_array[$row][1], PDO::PARAM_STR);
@@ -206,8 +207,6 @@ echo  date("Y-m-d H:i:s");
 					}
 					$sqlReq_item = $sql_item->execute();
 
-
-					Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
 					}else{
 						$errorUrl = 'ErreurInconnu';
 						Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
@@ -259,27 +258,33 @@ if (isset($sqlReq)) {
 		//on transforme l'extention en minuscule
 		$extension_minuscule = strtolower($extension_du_fichier);
 		//si l'extension minuscule n'est pas dans le tableau des valides
+		echo "2";
 		if( !in_array($extension_minuscule, $extensions_valides)) {
 			//on declenche une erreur
 			$errorUrl = 'inscriptionEmpty';
-			Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
-		}
-	}else{
-		$_FILES['Auct_screen'] = "test";
-		$errorUrl = 'aucuneImg';
-		Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
-	}
+			// Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
 
-	$id = $bdd->lastInsertId();
-		if($_FILES['Auct_screen']['size'] > 0){
-			//on construit le nouveau nom du fichier image
+		}
+		else{
+
+			$id = $bdd->lastInsertId();
+		//on construit le nouveau nom du fichier image
+			var_dump($id);
 			$nom = $id.'.'.$extension_minuscule;
 			//on deplace le fichier temporaire vers le dossier data avec le nouveau nom
 			move_uploaded_file($_FILES['Auct_screen']['tmp_name'],'../upload/auction/'.$nom);
 			//on modifie la ligne dans la base de donnees
-			$modif = $bdd -> prepare('UPDATE list_auct SET auct_screen = :c WHERE id = :i');
-			$modif -> execute(array(':c' => $nom, ':i' => $id));
+			$modif_img = $bdd->prepare('UPDATE list_auct SET Auct_screen = :c WHERE id = :i');
+			
+			$modif_img->bindParam('c', $nom, PDO::PARAM_STR);
+			$modif_img->bindParam('i', $id, PDO::PARAM_STR);
+
+			$sqlReq_img = $modif_img->execute();
+			var_dump($modif_img) ;
+			
+		Header('Refresh:0; url=../tool/enchere.php?err_message='.$errorUrl.'');
 		}
+	}
 }
 
 

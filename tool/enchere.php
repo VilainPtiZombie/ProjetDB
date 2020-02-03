@@ -6,6 +6,7 @@
 			<div class="input-group col-5">
             	<select name="SearchAuctEquip" class="selectpicker form-control" id="serveur" data-live-search="true" data-title="Séléctionne ton/tes Item(s) souhaité(s)" data-style="text" data-size="10">
 		      	<?php
+
 		      	require ('../script/bdd.php');
 					$sql = "SELECT id, equip_name FROM list_equipement";
 					$req = $bdd->query($sql);
@@ -57,6 +58,7 @@
 	</button>
 </div>
 <?php
+var_dump($_SESSION);
 include('../script/list_auct.php');
 
 include('../tool/add-enchere.php');

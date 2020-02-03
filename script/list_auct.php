@@ -17,6 +17,15 @@ include('search_auct.php');
             JOIN serveurs s
             on la.auct_serv = s.id";
 
+
+            // Recherche stat item 
+            $stat_auct_item = "
+            SELECT * FROM list_auct_stats las
+            JOIN user u
+            ON las.user_id = u.id
+            WHERE las.user_id = u.id";
+
+
             if (isset($_GET['SearchAuctEquip']) && isset($_GET['SearchInsServ']) && isset($_GET['SearchFm']) && isset($_GET['PrixMaxSearch'])) { 
             	$list_auct .= $ListSeach;
             }else{
@@ -26,6 +35,10 @@ include('search_auct.php');
 			$resList = $bdd->query($list_auct);
 			    // output data of each row
 
+			$stat_item = "
+			SELECT * FROM list_auct_stats las
+ 			WHERE id = (SELECT * FROM list_auct)
+			";
 		
 				while($list = $resList->fetch()) {
 			        echo ("
@@ -38,7 +51,10 @@ include('search_auct.php');
 						<div id='img-popup' class='img-show'>
 							<span class='close-img'>&times;</span>
 							<img class='img-shown'  src='../upload/auction/".$list['Auct_screen']."'>
-							<div id='caption'></div>
+							<div id='caption'>
+								<h5> Stats de l'item</h5>
+								
+							</div>
 						</div>
 					  	</div>
 					  	<div class='col-2'>	
@@ -67,6 +83,15 @@ include('search_auct.php');
 					");
 			  	  } 
 			    
+			    if (empty($resList->fetch())) {
+			    	echo "
+					<div class='col-12 row outoofstock'>
+						<span>Aucun item listé</span>
+						<span class='smiley'> :'(</span>
+					</div>
+			    	";
+			    }
+
 			    $resList->closeCursor();
 
 			

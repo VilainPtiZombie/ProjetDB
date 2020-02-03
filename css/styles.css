@@ -121,7 +121,6 @@ nav > .dropdown-nav-profil {
     padding: 10px 40px;
     border: 1px solid #ddd;
     border-radius: 10px;
-
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -174,7 +173,7 @@ background: #00b3ae;
     outline: none !important;
 }
 
-
+/*Liste Enchere*/
 
 .search {
     max-height: 380px;
@@ -322,6 +321,17 @@ p.prix  {
     width: auto;
     max-height: 1rem;
     margin: auto;
+}
+.outoofstock {
+    height:300px;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0.3;
+}
+.outoofstock span {
+    font-size:80px;
+    width:100%;
+    text-align: center;
 }
 
 

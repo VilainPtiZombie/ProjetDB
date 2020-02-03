@@ -55,7 +55,7 @@
 			    	<div class="input-group-prepend">
 				    	<span class="input-group-text" id="basic-addon3">Votre screen</span>
 			    	 	<div class="custom-file">
-			    	 		<input type="hidden" name="MAX_FILE_SIZE" value='12222222' >
+			    	 		<input type="hidden" name="MAX_FILE_SIZE" value='2000000000' >
 					  		<input name="Auct_screen" type="file" class="custom-file-input" id="customFile" placeholder="screen">
 					  		<label class="custom-file-label" for="customFile"></label>
 						</div>
