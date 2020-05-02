@@ -58,7 +58,7 @@
 	</button>
 </div>
 <?php
-var_dump($_SESSION);
+
 include('../script/list_auct.php');
 
 include('../tool/add-enchere.php');

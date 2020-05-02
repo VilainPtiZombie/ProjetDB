@@ -17,15 +17,6 @@ include('search_auct.php');
             JOIN serveurs s
             on la.auct_serv = s.id";
 
-
-            // Recherche stat item 
-            $stat_auct_item = "
-            SELECT * FROM list_auct_stats las
-            JOIN user u
-            ON las.user_id = u.id
-            WHERE las.user_id = u.id";
-
-
             if (isset($_GET['SearchAuctEquip']) && isset($_GET['SearchInsServ']) && isset($_GET['SearchFm']) && isset($_GET['PrixMaxSearch'])) { 
             	$list_auct .= $ListSeach;
             }else{
@@ -35,28 +26,50 @@ include('search_auct.php');
 			$resList = $bdd->query($list_auct);
 			    // output data of each row
 
-			$stat_item = "
-			SELECT * FROM list_auct_stats las
- 			WHERE id = (SELECT * FROM list_auct)
+			$stat_auct_item = "
+			SELECT `vie`, `fo`, `ine`, `cha`, `age`, `sa`, `pa`, `pm`, `invo`, `do`, `do_feu`, `do_fo`, `do_cha`, `do_neu`, `do_air`, `do_sort`, `do_arme`, `do_mel`, `do_dis`, `so`, `pp`, `ini`, `pods`, `tac`, `fui`, `ret_pa`, `ret_pm`, `esq_pa`, `esq_pm`, `do_cri`, `do_pou`, `res_cri`, `res_pou`, `pc_neu`, `pc_fo`, `pc_ine`, `pc_cha`, `pc_air`, `res_neu`, `res_fo`, `res_ine`, `res_eau`, `res_air`, `pc_sort`, `pc_arme`, `pc_melee`, `pc_dist`, `renvoie`, `crit` 
+			FROM list_auct_stats las
+ 			WHERE Auct_id = (SELECT id FROM list_auct)
 			";
-		
+		    
+
+		    if (!empty($resList)) {
 				while($list = $resList->fetch()) {
 			        echo ("
+			        <a class='col-12' href='../p-vente.php?p=".$list['id']."'> 
 					<div class=' col-12 row list-card'>
+					
 					  	<div class='col-1 img-auct'>
-					  	<a alt='Ouverture de l'image' class='popup-img'>
+					  		<button alt='Ouverture de l'image'  data-toggle='modal' data-target='#popup-img'  tabindex='-1' role='dialog'>
 							<img class='img-fluid' src='../upload/auction/".$list['Auct_screen']."' alt='Card image cap'>
 							<i class='lni-zoom-in'></i>
-						</a>
-						<div id='img-popup' class='img-show'>
-							<span class='close-img'>&times;</span>
-							<img class='img-shown'  src='../upload/auction/".$list['Auct_screen']."'>
-							<div id='caption'>
-								<h5> Stats de l'item</h5>
-								
-							</div>
-						</div>
 					  	</div>
+
+<div class='modal fade' id='popup-img' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+							  <div class='modal-dialog modal-dialog-centered' role='document'>
+							    <div class='modal-content'>
+							      <div class='modal-header'>
+							        <h5 class='modal-title' id='exampleModalLongTitle'>Modal title</h5>
+							        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+							          <span aria-hidden='true'>&times;</span>
+							        </button>
+							      </div>
+							      <div class='modal-body row'>
+							      	<div class='col-4'>
+							      		<img class='img-shown'  src='../upload/auction/".$list['Auct_screen']."'>
+							      	</div>
+									<div id='caption col-8'>
+										<h5> Stats de l'item</h5>
+		
+									</div>
+							      </div>
+							      <div class='modal-footer'>
+							        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+
 					  	<div class='col-2'>	
 						    <h5 class=''>".$list['equip']."</h5>
 						</div>	
@@ -76,21 +89,24 @@ include('search_auct.php');
 							</p>
 						</div>
 						<div class='col-2 row'>
-						    <button onlcick='mp' name='btn-sub-".$list['id']."' class='col-12 btn btn-primary mp_button'> Contact IG </button>
-						    <input type='text' name='text-".$list['id']."' class='col-12 mp_txt form-control' value='/w ".$list['username']." Bonjour à toi, je souhaiterais acheter ton ".$list['equip']." :D, vus depuis D2toolBox' >
+							
+						    
 						</div>
+
 					</div>
+					<a>
 					");
 			  	  } 
+			  	}
 			    
-			    if (empty($resList->fetch())) {
-			    	echo "
+			    else{
+			    	echo ("
 					<div class='col-12 row outoofstock'>
 						<span>Aucun item listé</span>
 						<span class='smiley'> :'(</span>
 					</div>
-			    	";
-			    }
+			    	");
+			   	}
 
 			    $resList->closeCursor();
 
@@ -103,3 +119,27 @@ include('search_auct.php');
 </section>
 
 
+<div class='modal fade' id='popup-img' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+  <div class='modal-dialog modal-dialog-centered' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='exampleModalLongTitle'>Modal title</h5>
+        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body row'>
+      	<div class='col-4'>
+      		<img class='img-shown'  src='../upload/auction/".$list['Auct_screen']."'>
+      	</div>
+		<div id='caption col-8'>
+			<h5> Stats de l'item</h5>
+								
+		</div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
